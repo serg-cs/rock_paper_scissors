@@ -45,27 +45,30 @@ fn choose_value(possible_values: [&str; 3]) -> String {
 }
 
 fn verdict_msg(user_value: &str, machine_value: &str) -> String {
-    if user_value == machine_value {
-        return "It was a tie.".to_string()
+    let msg = if user_value == machine_value {
+        "It was a tie."
     } else {
-        if user_value.to_string() == "rock" {
-            if machine_value.to_string() == "paper" {
-                return "Sorry. I won ;)".to_string()
+        if user_value == "rock" {
+            if machine_value == "paper" {
+                "Sorry. I won ;)"
             } else {
-                return "Congrats! You won :)".to_string()
+                "Congrats! You won :)"
             }
-        } else if user_value.to_string() == "paper" {
-            if machine_value.to_string() == "scissors" {
-                return "Sorry. I won ;)".to_string()
+        } else if user_value == "paper" {
+            if machine_value == "scissors" {
+                "Sorry. I won ;)"
             } else {
-                return "Congrats! You won :)".to_string()
+                "Congrats! You won :)"
             }
-        } else { // if user_value.to_string() == "scissors"
-            if machine_value.to_string() == "rock" {
-                return "Sorry. I won ;)".to_string()
+        } else {
+            // if user_value.to_string() == "scissors"
+            if machine_value == "rock" {
+                "Sorry. I won ;)"
             } else {
-                return "Congrats! You won :)".to_string()
+                "Congrats! You won :)"
             }
         }
-    }
+    };
+
+    msg.to_string()
 }
